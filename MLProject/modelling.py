@@ -92,7 +92,8 @@ mlflow.set_tracking_uri(f"file:{mlflow_dir}")
 experiment_name = f"CI_Bunga_Classification_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 mlflow.set_experiment(experiment_name)
 
-mlflow.tensorflow.autolog(log_tensorboard=False)
+# Autolog TANPA parameter log_tensorboard
+mlflow.tensorflow.autolog()
 
 with mlflow.start_run(run_name="GitHub_Actions_Run") as run:
     mlflow.log_param("epochs", args.epochs)
